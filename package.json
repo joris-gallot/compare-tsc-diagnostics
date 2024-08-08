@@ -1,26 +1,30 @@
 {
   "name": "compare-tsc-diagnostics",
+  "type": "module",
   "version": "1.0.0",
+  "packageManager": "pnpm@9.4.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "main": "main.js",
   "scripts": {
     "start": "tsx src/main.ts",
     "test": "vitest run",
-    "test:watch": "vitest"
-  },
-  "type": "module",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "packageManager": "pnpm@9.4.0",
-  "devDependencies": {
-    "@total-typescript/ts-reset": "^0.5.1",
-    "@types/node": "^22.1.0",
-    "tsx": "^4.17.0",
-    "typescript": "^5.5.4",
-    "vitest": "^2.0.5"
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "es-toolkit": "^1.13.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.24.1",
+    "@total-typescript/ts-reset": "^0.5.1",
+    "@types/node": "^22.1.0",
+    "eslint": "^9.8.0",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
   }
 }

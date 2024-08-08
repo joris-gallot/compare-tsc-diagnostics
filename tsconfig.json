@@ -2,11 +2,11 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "NodeNext",
-    "verbatimModuleSyntax": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitAny": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
     "skipLibCheck": true
   }
 }

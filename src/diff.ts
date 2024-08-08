@@ -1,37 +1,37 @@
-import { startCase } from "es-toolkit/string";
-import type { DiffDiagnostics, TscDiagnostics } from "./types.js";
+import { startCase } from 'es-toolkit/string'
+import type { DiffDiagnostics, TscDiagnostics } from './types.js'
 
 export function diffDiagnostics(oldDiagnostics: TscDiagnostics, newDiagnostics: TscDiagnostics) {
-  const diff: DiffDiagnostics = {};
+  const diff: DiffDiagnostics = {}
 
   for (const key in oldDiagnostics) {
     if (!newDiagnostics[key]) {
-      console.warn(`Key ${key} is missing in new diagnostics`);
-      continue;
+      console.warn(`Key ${key} is missing in new diagnostics`)
+      continue
     }
 
-    const { value: oldValue, unit } = oldDiagnostics[key];
-    const { value: newValue } = newDiagnostics[key];
+    const { value: oldValue, unit } = oldDiagnostics[key]
+    const { value: newValue } = newDiagnostics[key]
 
     diff[key] = {
       old: oldValue,
       new: newValue,
       unit,
-      diff: newValue - oldValue
+      diff: newValue - oldValue,
     }
   };
 
-  return diff;
+  return diff
 }
 
 export function diffDiagnosticsToString(diagnostics: DiffDiagnostics) {
-  const lines: string[] = [];
+  const lines: string[] = []
 
   for (const key in diagnostics) {
-    const { new: value, diff, unit } = diagnostics[key];
+    const { new: value, diff, unit } = diagnostics[key]
 
-    lines.push(`${startCase(key)}: ${value}${unit ?? ""} (${diff > 0 ? "+" : ""}${diff})`);
+    lines.push(`${startCase(key)}: ${value}${unit ?? ''} (${diff > 0 ? '+' : ''}${diff})`)
   }
 
-  return lines.join("\n");
+  return lines.join('\n')
 }
