@@ -1,5 +1,16 @@
-export interface TscDiagnostic { value: number, unit?: 's' | 'K' }
+export interface TscDiagnostic {
+  value: number
+  unit?: 's' | 'K'
+}
 export type TscDiagnostics = Record<string, TscDiagnostic>
 
-export interface DiffDiagnostic { old: number, new: number, diff: number, unit?: string }
+export interface DiffDiagnostic {
+  oldValue: number
+  oldValueWithUnit: string
+  newValue: number
+  newValueWithUnit: string
+  diff: number
+  diffPercent: number
+  unit?: 's' | 'K'
+}
 export type DiffDiagnostics = Record<string, DiffDiagnostic>

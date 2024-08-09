@@ -16,6 +16,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "consola": "^3.2.3",
     "es-toolkit": "^1.13.1"
   },
   "devDependencies": {

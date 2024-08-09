@@ -1,12 +1,13 @@
 import { argv, exit } from 'node:process'
 import { readFileSync } from 'node:fs'
+import consola from 'consola'
 import { parseDiagnostics } from './parse.js'
 import { diffDiagnostics, diffDiagnosticsToString } from './diff.js'
 
 const args = argv.slice(2)
 
 if (args.length !== 2) {
-  console.error('Usage: tsc-diag-diff <old-file> <new-file>')
+  consola.error('Usage: compare-tsc-diagnostics old-diagnostics.log new-diagnostics.log')
   exit(1)
 }
 
@@ -18,5 +19,4 @@ const newDiagnostics = parseDiagnostics(readFileSync(newFile, 'utf8'))
 
 const diff = diffDiagnostics(oldDiagnostics, newDiagnostics)
 
-// eslint-disable-next-line no-console
-console.log(diffDiagnosticsToString(diff))
+consola.log(diffDiagnosticsToString(diff))
