@@ -26,7 +26,7 @@ export function diffDiagnostics(oldDiagnostics: TscDiagnostics, newDiagnostics: 
       newValueWithUnit: newValue + (unit ?? ''),
       oldValueWithUnit: oldValue + (unit ?? ''),
       diff: round2Decimals(newValue - oldValue),
-      diffPercent: round2Decimals(((newValue - oldValue) / oldValue) * 100),
+      diffPercent: oldValue === 0 ? 0 : round2Decimals(((newValue - oldValue) / oldValue) * 100),
     }
   };
 
