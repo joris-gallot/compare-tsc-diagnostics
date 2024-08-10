@@ -19,6 +19,8 @@ export function diffDiagnostics(oldDiagnostics: TscDiagnostics, newDiagnostics: 
     const { value: oldValue, unit } = oldDiagnostics[key]
     const { value: newValue } = newDiagnostics[key]
 
+    const diffPercent = oldValue === 0 ? 0 : round2Decimals(((newValue - oldValue) / oldValue) * 100)
+
     diff[key] = {
       oldValue,
       newValue,
@@ -26,7 +28,7 @@ export function diffDiagnostics(oldDiagnostics: TscDiagnostics, newDiagnostics: 
       newValueWithUnit: newValue + (unit ?? ''),
       oldValueWithUnit: oldValue + (unit ?? ''),
       diff: round2Decimals(newValue - oldValue),
-      diffPercent: oldValue === 0 ? 0 : round2Decimals(((newValue - oldValue) / oldValue) * 100),
+      diffPercent,
     }
   };
 
